@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <h1></h1>
     <title>Daily Journal</title>
-    <link rel="stylesheet" href="src/styles/journal.css">
+    <link rel="stylesheet" href="/src/styles/journal.css">
 
 </head>
 
@@ -15,6 +15,7 @@
     <div class="main-section">
         <h1>Daily Journal</h1>
         <form action="">
+            <article class="entryLog" id="renderJournalEntries"></article>
             <fieldset>
                 <label for="journalDate">Date of Entry</label>
                 <input type="date" name="journalDate" id="journalDate">
@@ -32,7 +33,7 @@
 
             <fieldset>
                 <label for="emotions">Mood of the Day</label>
-                <select name="emotions" size=>
+                <select name="emotions" id="journalMood">
                     <option value="happy">Happy</option>
                     <option value="frustated">Frustrated</option>
                     <option value="indifferent">Indifferent</option>
@@ -48,12 +49,41 @@
                     <option value="hopeless">Hopeless</option>
                 </select>
             </fieldset>
-
-            <button type="button">Record Journal Entry</button>
-            <a href="#" class="button"></a>
+            <button type="button" id="saveButton">Record Journal Entry</button>
         </form>
+
+
+
+        <div id="moodFilter">
+            <select name="emotions" id="journalMood">
+                            <option value="happy">Happy</option>
+                            <option value="frustated">Frustrated</option>
+                            <option value="indifferent">Indifferent</option>
+                            <option value="stressed">Stressed</oiption>
+                            <option value="bored">Bored</option>
+                            <option value="annoyed">Annoyed</option>
+                            <option value="confused">Confused</option>
+                            <option value="determined">Determined</option>
+                            <option value="excited">Excited</option>
+                            <option value="perplexed">Perplexed</option>
+                            <option value="embarassed">Embarassed</option>
+                            <option value="grateful">Grateful</option>
+            </select>
+        </div>
+        
     </div>
-    <script src="scripts/journal.js"></script>
+    
+        <button id="showEntries" class="button">butt</button>
+    <div class="jsStuff">
+    <section class="entriesList"></section>
+    </div>
+    <script type="module" src="/src/scripts/journal.js"></script>
+    <!-- <script src="/src/scripts/data.js"></script>
+    <script src="/src/scripts/entriesDOM.js"></script>
+    <script src="/src/scripts/entryComponent.js"></script> -->
+
+
+
 </body>
 
 </html>

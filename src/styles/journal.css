@@ -1,14 +1,19 @@
 
 
   body {
-    display: flex;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url("images/smoke.jpeg");
+    background-image: url("../images/smoke.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    min-width: 100%;
-    height: auto;
   } 
+
+  .main-section {
+    justify-content: center;
+    align-content: center;
+    padding-right: 60%;
+
+  }
+
 
   form {
     display: flex;
@@ -21,5 +26,39 @@
     opacity: 0.6;
     font-weight: bold;
     margin: 60px 300px 0 2S0px;
-    margin-left: 55%;
+    margin-left: 55%
   } 
+
+
+  .jsStuff {
+  align-content: flex-start;
+  justify-content: center;
+  display: block;
+  flex-flow: row;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 80%
+
+  }
+/* 
+  * {
+    border: 7px solid red;
+  } */
+
+  button {
+    color: white;
+    background-color: pink;
+  }
+
+  .button2 {
+    background-color: black;
+  }
+
+  .entriesList {
+    background-color: pink;
+  }
+
+
+  #moodFilter {
+    background-color: pink;
+  }
