@@ -75,19 +75,45 @@ document.querySelector("#moodFilter").addEventListener("input", event => {
 
 // get container that is holding my delete and edit button 
 document.querySelector(".entriesList").addEventListener("click", (event) => {
-    if (event.target.id.startsWith("deleteEntry--")) {  // if the id starts with deleteButton--
-        // clear donut-container before adding new donut
-        console.log(event.target.id.split("--")[1]);
+    if (event.target.id.startsWith("deleteEntry--")) {  
+        //console.log(event.target.id.split("--")[1]);
         document.querySelector(".entriesList").innerHTML = "";
-        // Extract delete button id from button's id attribute
-        API.deleteEntry(event.target.id.split("--")[1]) // refers to the deleteEntry from data.js 
+        API.deleteEntry(event.target.id.split("--")[1]) 
             .then(() => {
-                //  get all the donuts again
                 API.getJournalEntries().then(data => DOM.renderJournalEntries2(data));
-                //entries.forEach(entry => {  // might NOT need this foreach
-                //  needs to send donut to DOM
             })
-    } else if (event.target.id.startsWith("editEntry")) {  //Editing a single Donut 
-        editForm(event.target.id.split("--")[1])  // Invoke the editForm function from editForm.js, slpitting the content between -- and passing only the second [1] "element" 
+    } else if (event.target.id.startsWith("editEntry")) {  
+        let editId = event.target.id.split("--")[1]; 
+      console.log(editId);
+      API.getSingleEntry(editId).then(data => {
+          document.querySelector("#eJournalMood").value = data.moodOfTheDay 
+          document.querySelector("#eJournalEntry").value = data.journalEntry 
+          document.querySelector("#eConcepts").value = data.conceptsCovered
+          document.querySelector("#eJournalDate").value = data.dateOfEntry
+          document.querySelector("#editId").value = data.id
+      })
     }
-});
+
+})
+
+document.querySelector("#newForm").addEventListener("click", (event) => {
+    let journalDate = document.querySelector("#eJournalDate").value;
+    let journalConcepts = document.querySelector("#eConcepts").value;
+    let journalEntry = document.querySelector("#eJournalEntry").value;
+    let journalMood = document.querySelector("#eJournalMood").value;
+    let editId = document.querySelector("#editId").value;
+    const entryObject = {
+        dateOfEntry: journalDate,
+        conceptsCovered: journalConcepts,
+        journalEntry: journalEntry,
+        moodOfTheDay: journalMood,
+    }
+        API.editForm(editId, entryObject).then(() => {
+        API.getJournalEntries().then(data => {
+            document.querySelector(".entriesList").innerHTML = " ";
+            DOM.renderJournalEntries2(data);
+        })
+    })
+
+})
+

@@ -14,7 +14,7 @@
 <body>
     <div class="main-section">
         <h1>Daily Journal</h1>
-        <form action="">
+        <form action="" class="mainForm">
             <article class="entryLog" id="renderJournalEntries"></article>
             <fieldset>
                 <label for="journalDate">Date of Entry</label>
@@ -53,7 +53,7 @@
         </form>
 
 
-
+<!--FILTER FOR MOOD-->
         <div id="moodFilter">
             <select name="emotions" id="journalMood">
                             <option value="happy">Happy</option>
@@ -72,10 +72,57 @@
         </div>
         
     </div>
-    
         <button id="showEntries" class="button">butt</button>
     <div class="jsStuff">
     <section class="entriesList"></section>
+    
+
+
+
+
+<!--NEW FORM MADE FOR EDITING -->
+
+    <form action="" id="newForm" class="edit">
+        <input type="hidden" id="editId" value="">
+            <article class="entryLog" id="eRenderJournalEntries"></article>
+            <fieldset>
+                <label for="journalDate">Date of Entry</label>
+                <input type="date" name="journalDate" id="eJournalDate">
+            </fieldset>
+
+            <fieldset>
+                <label for="conceptsCovered">Concepts Covered</label>
+                <input type="type" name="conceptsCovered" id="eConcepts">
+            </fieldset>
+
+            <fieldset>
+                <label for="journalEntry">Journal Entry</label>
+                <input type="type" class="entryEdit" name="journalEntry" id="eJournalEntry">
+            </fieldset>
+
+            <fieldset>
+                <label for="emotions">Mood of the Day</label>
+                <select name="emotions" id="eJournalMood">
+                    <option value="happy">Happy</option>
+                    <option value="frustated">Frustrated</option>
+                    <option value="indifferent">Indifferent</option>
+                    <option value="stressed">Stressed</oiption>
+                    <option value="bored">Bored</option>
+                    <option value="annoyed">Annoyed</option>
+                    <option value="confused">Confused</option>
+                    <option value="determined">Determined</option>
+                    <option value="excited">Excited</option>
+                    <option value="perplexed">Perplexed</option>
+                    <option value="embarassed">Embarassed</option>
+                    <option value="grateful">Grateful</option>
+                    <option value="hopeless">Hopeless</option>
+                </select>
+            </fieldset>
+            <button type="button" id="eSaveButton">Record Journal Entry</button>
+        </form>
+
+
+
     </div>
     <script type="module" src="/src/scripts/journal.js"></script>
     <!-- <script src="/src/scripts/data.js"></script>

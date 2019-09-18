@@ -15,6 +15,18 @@ const webComp = {
             <button class="button2" type="button" id="editEntry--${entry.id}">Edit</button>
         </div>
         `
+    },
+
+    editJournal: (entry) => {
+        return `
+    <form>
+        <h2 id="date">${entry.date}</h2>
+        <section id="concept">${entry.concept}</section>
+        <section id="entry">${entry.entry}</section>
+        <aside id="mood">${entry.mood}</aside>
+        <button id="saveEntry">Save Entry</button>
+    </form>
+    `
     }
 }
 
